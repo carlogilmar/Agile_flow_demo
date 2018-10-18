@@ -1,6 +1,13 @@
 import "phoenix_html"
+import {Socket} from "phoenix"
 
-console.log("Hola perritos!!");
+let socket = new Socket("/socket", {params: {user: "phoenix"}});
+socket.connect();
+
+socket.channel("main::start", {}).join()
+  .receive("ok", resp => { console.log("Joined to Example Channel!!", resp) })
+  .receive("error", resp => { console.log("Unable to join", resp) })
+
 
 //ANIME.JS
 function animateSVG(fromEl, toEl, dur, delay) {
