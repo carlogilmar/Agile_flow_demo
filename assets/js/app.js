@@ -1,4 +1,3 @@
-import "phoenix_html"
 import {Socket} from "phoenix"
 
 let socket = new Socket("/socket", {params: {user: "phoenix"}});
@@ -54,5 +53,9 @@ main_socket.on("main::change_image", function(data) {
 	console.log(animalData);
 	window.animateSVG(window.animalPolygon, window.animals[animalData], window.dur, window.delay);
 	window.body.classList = animalData;
+});
+
+main_socket.on("main::show_toast", function(data) {
+  toastr.success('Conexión Exitosa!', data.msg);
 })
 

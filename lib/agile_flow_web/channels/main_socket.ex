@@ -8,5 +8,7 @@ defmodule AgileFlowWeb.MainChannel do
 
 	# Send broadcast
 	# AgileFlowWeb.Endpoint.broadcast "main::start", "main::change_image", %{ msg: "eagle"}
+  # Show toast in main view!
+  # AgileFlowWeb.Endpoint.broadcast "main::start", "main::show_toast", %{ msg: "Carlo se ha conectado!"}
 
 end
