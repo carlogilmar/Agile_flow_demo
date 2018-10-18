@@ -1,36 +1,58 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
+<div class="body_animals">
+
+<nav class='nav-wrapper'>
+	<button data-name="insect" class='animal-button insect'>Insect</button>
+	<button data-name="tapir" class='animal-button malayan-tapir'>Tapir</button>
+	<button data-name="wolf" class='animal-button wolf'>Wolf</button>
+	<button data-name="elephant" class='animal-button elephant'>Elephant</button>
+	<button data-name="tiger" class='animal-button tiger'>Tiger</button>
+	<button data-name="eagle" class='animal-button eagle'>Eagle</button>
+</nav>
+
+
+<div class="moon"></div>
+<div class='svg-parent'>
+	<svg version="1.1" id="SVG-animal"
+		  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+		  x="0" y="0" viewBox="-100 -50 806 600"
+		  xml:space="preserve">
+		<defs>
+		</defs>
+		<polygon id="SVG-animal-1" class="st0" points="78,348.5 19,337.5 54,333.5"/>
+		<polygon id="SVG-animal-2" class="st1" points="0,321.7 70.4,316.6 79.9,348.9"/>
+		<polygon id="SVG-animal-3" class="st0" points="70.4,316.6 79.9,348.9 139.4,316.6"/>
+		<polygon id="SVG-animal-4" class="st2" points="150.8,350.2 139.4,316.6 79.9,348.9"/>
+		<polygon id="SVG-animal-5" class="st1" points="139.4,316.6 150.8,350.2 174.3,317.9"/>
+		<polygon id="SVG-animal-6" class="st4" points="174,317.5 150,350.5 208,333.5"/>
+		<polygon id="SVG-animal-7" class="st5" points="150.8,350.4 207.4,333.2 256.2,352.2"/>
+		<polygon id="SVG-animal-8" class="st3" points="277.6,323.4 217.6,338.3 174,317.5"/>
+		<polygon id="SVG-animal-9" class="st4" points="310.8,338.3 256.2,352.2 217.8,338.3"/>
+		<polygon id="SVG-animal-10" class="st5" points="310.8,338.3 305.1,351.3 256.2,352.2"/>
+		<polygon id="SVG-animal-11" class="st5" points="217,338.5 277.6,322.8 310.8,338.3"/>
+		<polygon id="SVG-animal-12" class="st4" points="310.8,338.3 277.6,322.8 380.1,313.4"/>
+		<polygon id="SVG-animal-13" class="st5" points="305.1,351.3 310.8,338.3 337.4,352.1"/>
+		<polygon id="SVG-animal-14" class="st3" points="380.1,313.4 337.4,352.1 310.8,338.3"/>
+		<polygon id="SVG-animal-15" class="st4" points="336.6,352.1 380.1,313.4 420.9,352.1"/>
+		<polygon id="SVG-animal-16" class="st5" points="450.6,323 421.5,352.8 380.1,313.4"/>
+		<polygon id="SVG-animal-17" class="st1" points="532.1,353.5 491.8,407.3 537.8,353.5"/>
+		<polygon id="SVG-animal-18" class="st1" points="541.2,404.3 579.7,440.7 545,396.1"/>
+		<polygon id="SVG-animal-19" class="st2" points="559,354.1 541.3,404.1 568,354.3"/>
+		<polygon id="SVG-animal-20" class="st1" points="421.5,352.1 450.6,323.2 577,354.5"/>
+		<polygon id="SVG-animal-21" class="st0" points="593.8,322.2 577.1,354.7 450.3,323.8"/>
+		<g class="wing-2">
+			<polygon id="SVG-animal-22" class="st6" points="185.9,98 148.3,164.3 215.2,146.8"/>
+			<polygon id="SVG-animal-23" class="st7" points="148.4,164.1 250.1,231 215.1,146.7"/>
+			<polygon id="SVG-animal-24" class="st8" points="510.5,318 247.7,226.8 220,159.8"/>
+		</g>
+		<polygon id="SVG-animal-25" class="st2" points="450.3,324.2 467,291.8 593.8,322.6"/>
+		<g class="wing-1">
+			<polygon id="SVG-animal-26" class="st6" points="384.4,34.7 283.9,117.8 264.5,0"/>
+			<polygon id="SVG-animal-27" class="st7" points="283.3,117.6 383.8,34.5 431.9,248.3"/>
+			<polygon id="SVG-animal-28" class="st8" points="512.7,315.8 431.9,248.3 403.9,124.8"/>
+		</g>
+		<polygon id="SVG-animal-29" class="st4" points="605,316 590.8,337.2 569.3,321.8"/>
+		<polygon id="SVG-animal-30" class="st5" points="569.3,322 583.5,300.7 605,316.2"/>
+	</svg>
 </div>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
-  </div>
 </div>

@@ -1,1 +1,259 @@
-/* This file is for your main application css. */
+.st0 {
+  fill: #292929;
+}
+
+.st1 {
+  fill: #333;
+}
+
+.st2 {
+  fill: #222;
+}
+
+.st3 {
+  fill: #ff9297;
+}
+
+.st4 {
+  fill: #bf383d;
+}
+
+.st5 {
+  fill: #8f2a2e;
+}
+
+.st6 {
+  fill: #d0ffe8;
+}
+
+.st7 {
+  fill: #B1FFD9;
+}
+
+.st8 {
+  fill: #92d8b6;
+}
+
+.body_animals {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: background .3s ease-out;
+  background: linear-gradient(0deg, #ffb1b1, #fff8aa);
+}
+
+.moon {
+  background: url(http://pngimg.com/uploads/moon/moon_PNG4.png) no-repeat center/cover;
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  position: absolute;
+  top: 1rem;
+  right: 5rem;
+  box-shadow: -0.5rem 0.5rem 30rem #d8d8d8;
+  transition: all 1s ease-out;
+  -webkit-transform: translateY(-150%);
+          transform: translateY(-150%);
+  opacity: 0;
+}
+
+body.insect {
+  background: linear-gradient(0deg, #ffb1b1, #fff8aa);
+}
+body.insect svg {
+  -webkit-animation: floating 2s linear 2.5s infinite alternate;
+          animation: floating 2s linear 2.5s infinite alternate;
+}
+
+body.tapir {
+  background: linear-gradient(0deg, #ffbbf0, #ffa377);
+}
+body.tapir #SVG-animal-1, body.tapir #SVG-animal-3, body.tapir #SVG-animal-28, body.tapir #SVG-animal-5,
+body.tapir #SVG-animal-11, body.tapir #SVG-animal-22, body.tapir #SVG-animal-8, body.tapir #SVG-animal-30,
+body.tapir #SVG-animal-14 {
+  fill: #292929;
+}
+body.tapir #SVG-animal-27, body.tapir #SVG-animal-11, body.tapir #SVG-animal-7, body.tapir #SVG-animal-25,
+body.tapir #animal-19, body.tapir #SVG-animal-17, body.tapir #SVG-animal-29 {
+  fill: #333;
+}
+body.tapir #SVG-animal-26, body.tapir #SVG-animal-10, body.tapir #SVG-animal-2, body.tapir #SVG-animal-18,
+body.tapir #SVG-animal-6, body.tapir #SVG-animal-23, body.tapir #SVG-animal-13, body.tapir #SVG-animal-15,
+body.tapir #SVG-animal-12, body.tapir #SVG-animal-21, body.tapir #SVG-animal-9, body.tapir #SVG-animal-24 {
+  fill: #222;
+}
+body.tapir #SVG-animal-16, body.tapir #SVG-animal-20 {
+  fill: #cccccc;
+}
+body.tapir #SVG-animal-26, body.tapir #SVG-animal-19 {
+  fill: #ddd;
+}
+body.tapir #SVG-animal-17 {
+  fill: #bbb;
+}
+
+body.wolf {
+  background: linear-gradient(0deg, #050514, #30336b);
+}
+body.wolf #SVG-animal-1, body.wolf #SVG-animal-16, body.wolf #SVG-animal-21,
+body.wolf #SVG-animal-26, body.wolf #SVG-animal-30, body.wolf #SVG-animal-6, body.wolf #SVG-animal-3,
+body.wolf #SVG-animal-17, body.wolf #SVG-animal-15 {
+  fill: #333333;
+}
+body.wolf #SVG-animal-24, body.wolf #SVG-animal-4, body.wolf #SVG-animal-8, body.wolf #SVG-animal-2 {
+  fill: #4d4d4d;
+}
+body.wolf #SVG-animal-25, body.wolf #SVG-animal-13, body.wolf #SVG-animal-7, body.wolf #SVG-animal-18,
+body.wolf #SVG-animal-5, body.wolf #SVG-animal-16, body.wolf #SVG-animal-22 {
+  fill: #666666;
+}
+body.wolf #SVG-animal-10, body.wolf #SVG-animal-27, body.wolf #SVG-animal-12, body.wolf #SVG-animal-23 {
+  fill: #e6e6e6;
+}
+body.wolf #SVG-animal-11, body.wolf #SVG-animal-14, body.wolf #SVG-animal-20, body.wolf #SVG-animal-29 {
+  fill: #cccccc;
+}
+body.wolf #SVG-animal-9, body.wolf #SVG-animal-19, body.wolf #SVG-animal-28 {
+  fill: #b3b3b3;
+}
+body.wolf .moon {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+body.elephant {
+  background: linear-gradient(0deg, #8affc9, #88d9ff);
+}
+body.elephant #SVG-animal-30, body.elephant #SVG-animal-18, body.elephant #SVG-animal-16,
+body.elephant #SVG-animal-8, body.elephant #SVG-animal-6, body.elephant #SVG-animal-5, body.elephant #SVG-animal-3,
+body.elephant #SVG-animal-1, body.elephant #SVG-animal-22 {
+  fill: #333333;
+}
+body.elephant #SVG-animal-29, body.elephant #SVG-animal-24, body.elephant #SVG-animal-19,
+body.elephant #SVG-animal-9, body.elephant #SVG-animal-7, body.elephant #SVG-animal-4 {
+  fill: #4d4d4d;
+}
+body.elephant #SVG-animal-27, body.elephant #SVG-animal-23, body.elephant #SVG-animal-20, body.elephant #SVG-animal-17,
+body.elephant #SVG-animal-10, body.elephant #SVG-animal-2 {
+  fill: #666666;
+}
+body.elephant #SVG-animal-21, body.elephant #SVG-animal-15, body.elephant #SVG-animal-12,
+body.elephant #SVG-animal-11 {
+  fill: #b3b3b3;
+}
+body.elephant #SVG-animal-25, body.elephant #SVG-animal-12 {
+  fill: #cccccc;
+}
+body.elephant #SVG-animal-28, body.elephant #SVG-animal-26, body.elephant #SVG-animal-13, body.elephant #SVG-animal-14 {
+  fill: #e6e6e6;
+}
+
+body.tiger {
+  background: linear-gradient(0deg, #f2ffad, #ff5454);
+}
+body.tiger #SVG-animal-13, body.tiger #SVG-animal-17, body.tiger #SVG-animal-30, body.tiger #SVG-animal-7,
+body.tiger #SVG-animal-27, body.tiger #SVG-animal-25, body.tiger #SVG-animal-20, body.tiger #SVG-animal-5 {
+  fill: #222;
+}
+body.tiger #SVG-animal-11, body.tiger #SVG-animal-6, body.tiger #SVG-animal-19, body.tiger #SVG-animal-26,
+body.tiger #SVG-animal-28, body.tiger #SVG-animal-8, body.tiger #SVG-animal-15, body.tiger #SVG-animal-23,
+body.tiger #SVG-animal-21 {
+  fill: #f39930;
+}
+body.tiger #SVG-animal-29, body.tiger #SVG-animal-14, body.tiger #SVG-animal-12, body.tiger #SVG-animal-10,
+body.tiger #SVG-animal-1, body.tiger #SVG-animal-2, body.tiger #SVG-animal-3, body.tiger #SVG-animal-4,
+body.tiger #SVG-animal-9, body.tiger #SVG-animal-16, body.tiger #SVG-animal-18,
+body.tiger #SVG-animal-24, body.tiger #SVG-animal-22 {
+  fill: #de7e0d;
+}
+
+body.eagle {
+  background: linear-gradient(0deg, #fff, #62e2ff);
+}
+body.eagle #SVG-animal-1, body.eagle #SVG-animal-4, body.eagle #SVG-animal-10, body.eagle #SVG-animal-13, body.eagle #SVG-animal-16, body.eagle #SVG-animal-19, body.eagle #SVG-animal-22, body.eagle #SVG-animal-25 {
+  fill: #222;
+}
+body.eagle #SVG-animal-2, body.eagle #SVG-animal-5, body.eagle #SVG-animal-8, body.eagle #SVG-animal-11, body.eagle #SVG-animal-14, body.eagle #SVG-animal-17, body.eagle #SVG-animal-20, body.eagle #SVG-animal-23, body.eagle #SVG-animal-26 {
+  fill: #444;
+}
+body.eagle #SVG-animal-3, body.eagle #SVG-animal-9, body.eagle #SVG-animal-12, body.eagle #SVG-animal-15, body.eagle #SVG-animal-18, body.eagle #SVG-animal-21, body.eagle #SVG-animal-24 {
+  fill: #666;
+}
+body.eagle #SVG-animal-29, body.eagle #SVG-animal-27 {
+  fill: #fff;
+}
+body.eagle #SVG-animal-28 {
+  fill: #eee;
+}
+body.eagle #SVG-animal-30, body.eagle #SVG-animal-6, body.eagle #SVG-animal-7 {
+  fill: #ffeb3b;
+}
+
+#SVG-animal {
+  width: 54rem;
+}
+#SVG-animal polygon {
+  transition: fill 1s ease-out;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+  width: 100%;
+}
+.nav-wrapper button {
+  padding: 1rem 1.5rem;
+  color: #fff;
+  background: #333;
+  font-size: 1.5rem;
+  border: none;
+  margin-right: 1rem;
+  cursor: pointer;
+  outline: none;
+}
+
+@-webkit-keyframes wing-1 {
+  to {
+    -webkit-transform: rotateX(-50deg);
+            transform: rotateX(-50deg);
+  }
+}
+
+@keyframes wing-1 {
+  to {
+    -webkit-transform: rotateX(-50deg);
+            transform: rotateX(-50deg);
+  }
+}
+@-webkit-keyframes wing-2 {
+  to {
+    -webkit-transform: rotateX(50deg);
+            transform: rotateX(50deg);
+  }
+}
+@keyframes wing-2 {
+  to {
+    -webkit-transform: rotateX(50deg);
+            transform: rotateX(50deg);
+  }
+}
+@-webkit-keyframes floating {
+  to {
+    -webkit-transform: translate(0, 1rem);
+            transform: translate(0, 1rem);
+  }
+}
+@keyframes floating {
+  to {
+    -webkit-transform: translate(0, 1rem);
+            transform: translate(0, 1rem);
+  }
+}
+
