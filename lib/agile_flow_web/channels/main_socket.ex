@@ -6,4 +6,7 @@ defmodule AgileFlowWeb.MainChannel do
     {:ok, socket}
   end
 
+	# Send broadcast
+	# AgileFlowWeb.Endpoint.broadcast "main::start", "main::change_image", %{ msg: "eagle"}
+
 end

@@ -1,15 +1,5 @@
 <div class="body_animals">
 
-<nav class='nav-wrapper'>
-	<button data-name="insect" class='animal-button insect'>Insect</button>
-	<button data-name="tapir" class='animal-button malayan-tapir'>Tapir</button>
-	<button data-name="wolf" class='animal-button wolf'>Wolf</button>
-	<button data-name="elephant" class='animal-button elephant'>Elephant</button>
-	<button data-name="tiger" class='animal-button tiger'>Tiger</button>
-	<button data-name="eagle" class='animal-button eagle'>Eagle</button>
-</nav>
-
-
 <div class="moon"></div>
 <div class='svg-parent'>
 	<svg version="1.1" id="SVG-animal"

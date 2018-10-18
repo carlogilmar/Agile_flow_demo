@@ -4,19 +4,16 @@ import {Socket} from "phoenix"
 let socket = new Socket("/socket", {params: {user: "phoenix"}});
 socket.connect();
 
-socket.channel("main::start", {}).join()
+let main_socket = socket.channel("main::start");
+main_socket.join()
   .receive("ok", resp => { console.log("Joined to Example Channel!!", resp) })
   .receive("error", resp => { console.log("Unable to join", resp) })
 
-
 //ANIME.JS
-function animateSVG(fromEl, toEl, dur, delay) {
+window.animateSVG = function animateSVG(fromEl, toEl, dur, delay) {
   for (let i = 0; i < fromEl.length; i++) {anime({ targets: fromEl[i], points: { value: toEl[i] }, duration: dur, delay: i * delay });}}
 
-// GSAP
-// function animateSVG(fromEl,toEl,dur,delay){const tl=new TimelineMax();for(i=0;i<fromEl.length;i++) tl.to(fromEl[i],dur,{attr:{points:toEl[i]},ease:Elastic.easeOut.config(1, 0.3)},delay*i);}
-
-var animals = {
+window.animals = {
 	insect: [
 	"569.3,322 583.5,300.7 605,316.2", "605,316 590.8,337.2 569.3,321.8", "512.7,315.8 431.9,248.3 403.9,124.8", "283.3,117.6 383.8,34.5 431.9,248.3", "384.4,34.7 283.9,117.8 264.5,0", "450.3,324.2 467,291.8 593.8,322.6", "510.5,318 247.7,226.8 220,159.8", "148.4,164.1 250.1,231 215.1,146.7", "185.9,98 148.3,164.3 215.2,146.8", "593.8,322.2 577.1,354.7 450.3,323.8", "421.5,352.1 450.6,323.2 577,354.5", "559,354.1 541.3,404.1 568,354.3", "541.2,404.3 579.7,440.7 545,396.1", "532.1,353.5 491.8,407.3 537.8,353.5", "450.6,323 421.5,352.8 380.1,313.4", "336.6,352.1 380.1,313.4 420.9,352.1", "380.1,313.4 337.4,352.1 310.8,338.3", "305.1,351.3 310.8,338.3 337.4,352.1", "310.8,338.3 277.6,322.8 380.1,313.4", "217,338.5 277.6,322.8 310.8,338.3", "310.8,338.3 305.1,351.3 256.2,352.2", "310.8,338.3 256.2,352.2 217.8,338.3", "277.6,323.4 217.6,338.3 174,317.5", "150.8,350.4 207.4,333.2 256.2,352.2", "174,317.5 150,350.5 208,333.5", "139.4,316.6 150.8,350.2 174.3,317.9", "150.8,350.2 139.4,316.6 79.9,348.9", "70.4,316.6 79.9,348.9 139.4,316.6", "0,321.7 70.4,316.6 79.9,348.9", "78,348.5 19,337.5 54,333.5"],
 
@@ -40,29 +37,22 @@ var animals = {
 	eagle: [
 	"13.3,315 0,318.6 12.4,339.9 ", "6.9,261.6 0,318.6 28.2,321.4 ", "28.2,321.4 6.9,261.6 28.2,227.9 ", "28.2,227.9 61.1,241 28.2,321.4 ", "36.1,302.1 61.1,241 179.3,329.6 ", "61.1,241 170.7,181 179.3,329.6 ", "36.1,302.1 62.3,306 39.9,328.3 ", "62.3,306 50.2,317.9 86.6,366 ", "86.6,366 141.5,397.6 62.3,306 ", "141.5,397.6 179.3,329.6 62.3,306 ", "6.9,169.5 170.7,181 61.1,241 ", "179.3,329.6 246.8,146.4 170.7,181 ", "141.5,397.6 179.3,329.6 179.3,406.7 ", "141.5,397.6 62.5,425.7 86.6,366 ", "141.5,397.6 104.4,454.6 62.5,425.7 ", "6.9,169.5 127.1,111.9 170.7,181 ", "225.3,341.2 246.8,146.4 179.3,329.6 ", "179.3,406.7 179.3,329.6 302.8,412 ", "6.9,169.5 16.5,48.7 127.1,111.9 ", "338.4,222 246.8,146.4 225.3,341.2 ", "94.1,444.3 22,447.7 62.5,425.7 ", "366.1,196.3 338.4,222 246.8,146.4 ", "366.1,196.3 383.3,103.6 302.8,177 ", "67,445.6 17.2,462.8 22,447.7 ", "22,447.7 62.5,425.7 4.8,435.3 ", "237,368.1 393.8,334.2 302.8,412 ", "383.3,103.6 335.2,77.5 302.8,177 ", "302.8,177 335.2,77.5 246.8,146.4 ", "420.6,46.6 335.2,77.5 383.3,103.6 ", "316.6,0 246.8,146.4 335.2,77.5 "] };
 
-
-
 // to add the new points to the array
 var push = function push(from, to) {
 	from.forEach(function (e) {return to.push(e.getAttribute('points'));});
-	console.log(to);
 };
 
-
-var body = document.querySelector('body');
-var animalPolygon = Array.from(document.querySelectorAll('#SVG-animal polygon')).reverse();
-var animalButtons = Array.from(document.querySelectorAll('.animal-button'));
+window.body = document.querySelector('body');
+window.animalPolygon = Array.from(document.querySelectorAll('#SVG-animal polygon')).reverse();
 
 // ANIME JS
-var dur = 300,delay = 0.05;
-// GSAP
-// let dur = 2, delay = 0.02;
+window.dur = 300;
+window.delay = 0.05;
 
-animalButtons.forEach(function (button) {
-	var animalData = button.getAttribute('data-name');
-	button.addEventListener('click', function () {
-		animateSVG(animalPolygon, animals[animalData], dur, delay);
-		body.classList = animalData;
-	});
-});
+main_socket.on("main::change_image", function(data) {
+	let animalData = data.msg;
+	console.log(animalData);
+	window.animateSVG(window.animalPolygon, window.animals[animalData], window.dur, window.delay);
+	window.body.classList = animalData;
+})
 
