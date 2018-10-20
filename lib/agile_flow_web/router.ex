@@ -17,10 +17,7 @@ defmodule AgileFlowWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/monitor", PageController, :monitor
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", AgileFlowWeb do
-  #   pipe_through :api
-  # end
 end

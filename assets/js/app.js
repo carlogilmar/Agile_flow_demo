@@ -10,6 +10,8 @@ let main_socket = socket.channel("main::start");
 main_socket.join()
   .receive("ok", resp => {
     console.log("Joined to Example Channel!!", resp)
+console.log(resp.category);
+		$("#current").text( resp.category );
   })
   .receive("error", resp => {
     console.log("Unable to join", resp)

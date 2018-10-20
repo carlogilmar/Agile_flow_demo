@@ -1,11 +1,12 @@
 defmodule AgileFlowWeb.MainChannel do
   use Phoenix.Channel
   alias AgileFlowWeb.Presence
+  alias AgileFlow.Director
 
   def join("main::start", _payload, socket) do
     send(self(), :after_join)
-    current_user = socket.assigns["user_id"]
-    {:ok, %{user: current_user}, socket}
+    {_, current_user} = Director.suscribe()
+    {:ok, current_user, socket}
   end
 
   def handle_info(:after_join, socket) do
