@@ -45,4 +45,8 @@
 	</svg>
 </div>
 
+<div class="text-center" id="current_user" name="current_user">
+  <small> Current User </small>
+</div>
+
 </div>

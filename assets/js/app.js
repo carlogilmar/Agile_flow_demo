@@ -1,12 +1,21 @@
-import {Socket} from "phoenix"
+import {Socket, Presence} from "phoenix"
+
+let presences = {};
+
 
 let socket = new Socket("/socket", {params: {user: "phoenix"}});
 socket.connect();
 
 let main_socket = socket.channel("main::start");
 main_socket.join()
-  .receive("ok", resp => { console.log("Joined to Example Channel!!", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
+  .receive("ok", resp => {
+    console.log("Joined to Example Channel!!", resp)
+    $("#current_user").text( resp.user );
+  })
+  .receive("error", resp => {
+    console.log("Unable to join", resp)
+    $("#current_user").text( "FAIL CONNECTION!" );
+  })
 
 //ANIME.JS
 window.animateSVG = function animateSVG(fromEl, toEl, dur, delay) {
@@ -59,3 +68,14 @@ main_socket.on("main::show_toast", function(data) {
   toastr.success('Conexión Exitosa!', data.msg);
 })
 
+main_socket.on("presence_state", state => {
+  presences = Presence.syncState(presences, state)
+  console.log("Presence state!!");
+  console.log({presences});
+})
+
+main_socket.on("presence_diff", diff => {
+  presences = Presence.syncDiff(presences, diff)
+  console.log("Presence diff!!");
+  console.log({presences});
+})

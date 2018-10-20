@@ -10,6 +10,7 @@ defmodule AgileFlow.Application do
     children = [
       # Start the endpoint when the application starts
       supervisor(AgileFlowWeb.Endpoint, []),
+      supervisor(AgileFlowWeb.Presence, [])
       # Start your own worker by calling: AgileFlow.Worker.start_link(arg1, arg2, arg3)
       # worker(AgileFlow.Worker, [arg1, arg2, arg3]),
     ]
