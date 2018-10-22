@@ -7,6 +7,8 @@ let socket = new Socket("/socket", {params: {user: "phoenix"}});
 socket.connect();
 
 let main_socket = socket.channel("main::start");
+window.main_socket = main_socket;
+
 main_socket.join()
   .receive("ok", resp => {
     console.log("Joined to Example Channel!!", resp)
@@ -71,10 +73,12 @@ main_socket.on("main::show_toast", function(data) {
 
 main_socket.on("presence_state", state => {
   presences = Presence.syncState(presences, state)
+  console.log("Presence state")
 })
 
 main_socket.on("presence_diff", diff => {
   presences = Presence.syncDiff(presences, diff)
   let users_connected = Object.keys( presences ).length
   $("#current_user").text( "Conexiones: "+ users_connected );
+  window.main_socket.push('main::sync_users', {message: "Actualizando!"});
 })

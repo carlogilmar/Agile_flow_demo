@@ -5,15 +5,20 @@ defmodule AgileFlowWeb.MainChannel do
 
   def join("main::start", _payload, socket) do
     send(self(), :after_join)
-    {_, current_user} = Director.suscribe()
-    {:ok, current_user, socket}
+    {:ok, socket.assigns.user, socket}
   end
 
   def handle_info(:after_join, socket) do
-    user = socket.assigns[:user_id]
-    {:ok, _} = Presence.track(socket, user, %{ user_id: user })
+    user = socket.assigns.user
+    {:ok, _} = Presence.track(socket, user["user_id"], user)
     presence_list = Presence.list(socket)
     push socket, "presence_state", presence_list
+    {:noreply, socket}
+  end
+
+  def handle_in("main::sync_users", _payload, socket) do
+    users = Presence.list(socket) |> Map.keys() |> Enum.count
+    IO.puts "There are #{users} users online!"
     {:noreply, socket}
   end
 
