@@ -17,8 +17,8 @@ defmodule AgileFlowWeb.MainChannel do
   end
 
   def handle_in("main::sync_users", _payload, socket) do
-    users = Presence.list(socket) |> Map.keys() |> Enum.count
-    IO.puts "There are #{users} users online!"
+    counters = count_users( socket )
+    IO.inspect counters
     {:noreply, socket}
   end
 
@@ -26,5 +26,19 @@ defmodule AgileFlowWeb.MainChannel do
   # AgileFlowWeb.Endpoint.broadcast "main::start", "main::change_image", %{ msg: "eagle"}
   # Show toast in main view!
   # AgileFlowWeb.Endpoint.broadcast "main::start", "main::show_toast", %{ msg: "Carlo se ha conectado!"}
+
+  def count_users( socket ) do
+    tracking = Presence.list(socket)
+    users = tracking |> Map.keys()
+    users_size = users |> Enum.count
+    categories =
+      for user <- users do
+        [meta] = tracking[user].metas
+        meta["category"]
+      end
+    categories |> get_counters()
+  end
+
+  def get_counters( categories ), do: categories |> Enum.reduce( %{}, fn state, counter -> Map.put( counter, state, (counter[state] || 0) + 1 ) end )
 
 end
