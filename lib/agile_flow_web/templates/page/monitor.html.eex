@@ -45,6 +45,35 @@
 	</svg>
 </div>
 
+<div class="text-center">
+  <h2> <span id="animal" style="font-size: 100px;"> Cultura Ágil </span> </h2>
+</div>
+
+<div class="row text-center">
+  <div class="col-md-3"> EQUIPO A </div>
+  <div class="col-md-3"> EQUIPO B </div>
+  <div class="col-md-3"> EQUIPO C </div>
+  <div class="col-md-3"> EQUIPO D </div>
+</div>
+<div class="row text-center">
+  <div class="col-md-3" id="a"> 0 </div>
+  <div class="col-md-3" id="b"> 0 </div>
+  <div class="col-md-3" id="c"> 0 </div>
+  <div class="col-md-3" id="d"> 0 </div>
+</div>
+<div class="row text-center">
+  <div class="col-md-3"> EQUIPO E </div>
+  <div class="col-md-3"> EQUIPO F </div>
+  <div class="col-md-3"> EQUIPO G </div>
+  <div class="col-md-3"> EQUIPO H </div>
+</div>
+<div class="row text-center">
+  <div class="col-md-3" id="e"> 0 </div>
+  <div class="col-md-3" id="f"> 0 </div>
+  <div class="col-md-3" id="g"> 0 </div>
+  <div class="col-md-3" id="h"> 0 </div>
+</div>
+
 <div class="text-center" id="current_user" name="current_user">
   <small> Current User </small>
 </div>

@@ -63,9 +63,22 @@ window.delay = 0.05;
 main_socket.on("main::change_image", function(data) {
 	let animalData = data.msg;
 	console.log(animalData);
+  $("#animal").text( data.msg );
 	window.animateSVG(window.animalPolygon, window.animals[animalData], window.dur, window.delay);
 	window.body.classList = animalData;
 });
+
+main_socket.on("main::team_players", function(data) {
+  console.log("Contador de jugadores!!");
+  $("#a").text( data["A"] );
+  $("#b").text( data["B"] );
+  $("#c").text( data["C"] );
+  $("#d").text( data["D"] );
+  $("#e").text( data["E"] );
+  $("#f").text( data["F"] );
+  $("#g").text( data["G"] );
+  $("#h").text( data["H"] );
+})
 
 main_socket.on("main::show_toast", function(data) {
   toastr.success('Conexión Exitosa!', data.msg);
