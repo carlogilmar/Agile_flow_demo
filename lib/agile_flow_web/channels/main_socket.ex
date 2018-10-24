@@ -25,9 +25,7 @@ defmodule AgileFlowWeb.MainChannel do
   end
 
   def handle_in("main::send_answer", payload, socket) do
-    IO.puts "========="
-    IO.inspect payload["answer"]
-    IO.puts "========="
+    AgileFlow.Game.send_answer( payload["answer"] )
     {:noreply, socket}
   end
 
