@@ -47,6 +47,7 @@
 
 <div class="text-center">
   <h2> <span id="animal" style="font-size: 100px;"> Cultura Ágil </span> </h2>
+	<h4> Score:<span id="score"> S C O R E </span> </h4>
 </div>
 
 <div class="row text-center">

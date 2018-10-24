@@ -1,5 +1,6 @@
 defmodule AgileFlow.ScoreGame do
   use GenServer
+  alias AgileFlowWeb.Endpoint
 
   def start_link(), do: GenServer.start_link(__MODULE__, [], [name: __MODULE__])
   def init(_), do: {:ok, {:general_score, 0} }
@@ -11,6 +12,7 @@ defmodule AgileFlow.ScoreGame do
     {_, score} = state
     next_score = score+1
     #IO.puts "Score: #{next_score}"
+    Endpoint.broadcast "main::start", "main::score", %{ score: next_score}
     {:noreply, {:general_score, next_score} }
   end
 
@@ -18,6 +20,7 @@ defmodule AgileFlow.ScoreGame do
     {_, score} = state
     next_score = decrement_score( score )
     #IO.puts "Score: #{next_score}"
+    Endpoint.broadcast "main::start", "main::score", %{ score: next_score}
     {:noreply, {:general_score, next_score} }
   end
 

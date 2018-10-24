@@ -21,7 +21,7 @@ defmodule AgileFlow.Game do
   end
 
   defp get_next_session_timer( team, _, session_timer, false), do: { session_timer, team}
-  defp get_next_session_timer( _, current, session_timer, true) do
+  defp get_next_session_timer( _, current, _, true) do
     current_team = CoordinatorTeam.choose_team()
     IO.puts "Le va al equipo #{current_team}"
     Endpoint.broadcast "main::start", "main::show_toast", %{ msg: "Turno del equipo #{current_team}"}
@@ -33,6 +33,7 @@ defmodule AgileFlow.Game do
     IO.puts "Iniciando el juego de la vida"
     # Iniciar el session game
     SessionGame.play()
+    Endpoint.broadcast "main::start", "main::score", %{ score: 0 }
     loop()
     {:noreply, state}
   end

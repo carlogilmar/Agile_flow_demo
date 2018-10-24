@@ -110,9 +110,11 @@ main_socket.on("presence_diff", diff => {
   let users_connected = Object.keys( presences ).length
   $("#current_user").text( "Conexiones: "+ users_connected );
   window.main_socket.push('main::sync_users', {message: "Actualizando!"});
-})
+});
 
 window.chooseMe = function chooseMe( animal ){
   console.log("Enviando: "+animal);
   window.main_socket.push('main::send_answer', {answer: animal});
-}
+};
+
+main_socket.on("main::score", function(state) { console.log("Actualizando score!!"); $("#score").text( state.score ); });
