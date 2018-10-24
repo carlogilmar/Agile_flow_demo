@@ -3,9 +3,36 @@
 	<img src="https://easychair.org/images/cfp-logo/CONISOFT_2018.jpg" /><br>
 	<h3 class="display-4">Cultura Ágil</h3>
 	<h2> <span id="current" style="font-size: 100px;"> Equipo </span> </h2>
-  <div class="text-center" id="player_console">
-    <h2> Aquí va el menú de opciones </h2>
-    <button class="btn btn-primary"> Saludos </button>
-  </div>
+	<div class="text-center" id="player_console">
+		<h2> Aquí va el menú de opciones </h2>
+		<button class="btn btn-primary"> Saludos </button>
+	</div>
+</div>
+
+<div class="text-center" id="loader">
+	<article class="wwdc">
+		<span class="spanimate spin">
+			<!-- Large Circles -->
+			<div class="large circle one"></div>
+			<div class="large circle two"></div>
+			<div class="large circle three"></div>
+			<div class="large circle four"></div>
+			<div class="large circle five"></div>
+			<div class="large circle six"></div>
+			<div class="large circle seven"></div>
+			<div class="large circle eight"></div>
+		</span>
+		<span class="spanimate pulse">
+			<!-- Small Shapes -->
+			<div class="small circle one"></div>
+			<div class="small squircle two"></div>
+			<div class="small circle three"></div>
+			<div class="small squircle four"></div>
+			<div class="small circle five"></div>
+			<div class="small squircle six"></div>
+			<div class="small circle seven"></div>
+			<div class="small squircle eight"></div>
+		</span>
+	</article>
 </div>
 
