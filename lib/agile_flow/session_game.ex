@@ -13,7 +13,6 @@ defmodule AgileFlow.SessionGame do
   def handle_info(:loop, state) do
     {_, counter, _, animals_index, _, enable_counter, current, animal} = state
     next_state = get_next_state( counter, animals_index, enable_counter )
-    IO.inspect next_state
     :timer.sleep 1000
     loop()
     {:noreply, next_state}
@@ -28,6 +27,7 @@ defmodule AgileFlow.SessionGame do
   def get_next_animal( index, :disable) do
     next_index = get_next_animal_index( index )
     next_animal = get_animal( next_index )
+    IO.puts "Animal: #{next_animal}"
     Endpoint.broadcast "main::start", "main::change_image", %{ msg: next_animal }
     { next_index, next_animal }
   end
