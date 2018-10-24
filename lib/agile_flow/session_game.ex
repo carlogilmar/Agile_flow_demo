@@ -1,6 +1,6 @@
 defmodule AgileFlow.SessionGame do
   use GenServer
-
+  alias AgileFlowWeb.Endpoint
   @animals ["eagle", "tapir", "insect", "wolf", "tiger", "elephant"]
 
   def start_link(), do: GenServer.start_link(__MODULE__, [], [name: __MODULE__])
@@ -28,6 +28,7 @@ defmodule AgileFlow.SessionGame do
   def get_next_animal( index, :disable) do
     next_index = get_next_animal_index( index )
     next_animal = get_animal( next_index )
+    Endpoint.broadcast "main::start", "main::change_image", %{ msg: next_animal }
     { next_index, next_animal }
   end
   def get_next_animal( index, :enable) do
@@ -44,13 +45,13 @@ defmodule AgileFlow.SessionGame do
   defp get_next_animal_index( index ), do: index+1
 
   def handle_cast( {:start}, state) do
-    IO.puts "Empezando el contador"
+    IO.puts "Session Game Starting..."
     loop()
     {:noreply, state}
   end
 
   def handle_cast( {:end}, state) do
-    IO.puts "Deteniendo  el contador"
+    IO.puts "Session Game Stopped..."
     Process.exit( self() , :kill)
     {:noreply, state}
   end
