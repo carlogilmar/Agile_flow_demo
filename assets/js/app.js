@@ -13,6 +13,8 @@ main_socket.join()
     console.log("Joined to Example Channel!!", resp)
     console.log(resp.category);
 		$("#current").text( resp.category );
+    $("#player_console").hide();
+		$("#loader").hide();
   })
   .receive("error", resp => {
     console.log("Unable to join", resp)
@@ -91,8 +93,10 @@ main_socket.on("main::team_player", function(data) {
   let my_team = document.getElementById("current").textContent;
   if(data.team === my_team){
     $("#player_console").show();
+    $("#loader").hide();
   } else {
     $("#player_console").hide();
+    $("#loader").show();
   }
 })
 
