@@ -24,6 +24,13 @@ defmodule AgileFlowWeb.MainChannel do
     {:noreply, socket}
   end
 
+  def handle_in("main::send_answer", payload, socket) do
+    IO.puts "========="
+    IO.inspect payload["answer"]
+    IO.puts "========="
+    {:noreply, socket}
+  end
+
   # Send broadcast
   # AgileFlowWeb.Endpoint.broadcast "main::start", "main::change_image", %{ msg: "eagle"}
   # Show toast in main view!
