@@ -1,3 +1,4 @@
+import "phoenix_html"
 import {Socket, Presence} from "phoenix"
 
 let presences = {};

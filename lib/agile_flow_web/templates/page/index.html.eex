@@ -36,3 +36,4 @@
 	</article>
 </div>
 
+<script src="<%= static_path(@conn, "/js/index_controller.js") %>"></script>
