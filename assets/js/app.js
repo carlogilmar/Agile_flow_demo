@@ -11,7 +11,7 @@ window.main_socket = main_socket;
 main_socket.join()
   .receive("ok", resp => {
     console.log("Joined to Example Channel!!", resp)
-console.log(resp.category);
+    console.log(resp.category);
 		$("#current").text( resp.category );
   })
   .receive("error", resp => {
@@ -85,6 +85,15 @@ main_socket.on("main::team_players", function(data) {
 
 main_socket.on("main::show_toast", function(data) {
   toastr.success('Conexión Exitosa!', data.msg);
+})
+
+main_socket.on("main::team_player", function(data) {
+  let my_team = document.getElementById("current").textContent;
+  if(data.team === my_team){
+    $("#player_console").show();
+  } else {
+    $("#player_console").hide();
+  }
 })
 
 main_socket.on("presence_state", state => {

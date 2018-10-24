@@ -24,6 +24,7 @@ defmodule AgileFlow.Game do
     current_team = CoordinatorTeam.choose_team()
     IO.puts "Le va al equipo #{current_team}"
     Endpoint.broadcast "main::start", "main::show_toast", %{ msg: "Le va al equipo #{current_team}"}
+    Endpoint.broadcast "main::start", "main::team_player", %{ team: current_team}
     { current + 5, current_team }
   end
 

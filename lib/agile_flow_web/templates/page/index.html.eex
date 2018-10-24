@@ -2,6 +2,9 @@
 	<br>
 	<img src="https://easychair.org/images/cfp-logo/CONISOFT_2018.jpg" /><br>
 	<h3 class="display-4">Cultura Ágil</h3>
-	<h2> <span id="current" style="font-size: 100px;"> Song </span> </h2>
+	<h2> <span id="current" style="font-size: 100px;"> Equipo </span> </h2>
+  <div class="text-center" id="player_console">
+    <button class="btn btn-primary"> Saludos </button>
+  </div>
 </div>
 
