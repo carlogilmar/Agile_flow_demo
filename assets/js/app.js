@@ -2,7 +2,6 @@ import {Socket, Presence} from "phoenix"
 
 let presences = {};
 
-
 let socket = new Socket("/socket", {params: {user: "phoenix"}});
 socket.connect();
 
