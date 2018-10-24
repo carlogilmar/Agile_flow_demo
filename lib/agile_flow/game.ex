@@ -1,28 +1,28 @@
 defmodule AgileFlow.Game do
   use GenServer
+  alias AgileFlow.CoordinatorTeam
 
   def start_link(), do: GenServer.start_link(__MODULE__, [], [name: __MODULE__])
   def play(), do: GenServer.cast( __MODULE__, {:start} )
   def reset(), do: GenServer.cast( __MODULE__, {:end} )
   defp loop(), do: send self(), :loop
 
-  def init(_), do: {:ok, {:timer, 0, :session_timer, 0} }
+  def init(_), do: {:ok, {:timer, 0, :session_timer, 0, :current_team, nil} }
 
   def handle_info(:loop, state) do
-    {:timer, current, :session_timer, session_timer} = state
-    next_session_timer = get_next_session_timer( current, session_timer, current == session_timer)
     IO.inspect state
+    {_, current, _, session_timer, _, current_team} = state
+    {next_session_timer, team}  = get_next_session_timer( current_team, current, session_timer, current == session_timer)
     :timer.sleep 1000
     loop()
-    {:noreply, {:timer, current+1, :session_timer, next_session_timer}}
+    {:noreply, {:timer, current+1, :session_timer, next_session_timer, :current_team, team} }
   end
 
-  defp get_next_session_timer( current, session_timer, true) do
-    IO.puts "Cambioooooooooooo"
-    current + 5
-  end
-  defp get_next_session_timer( _, session_timer, false) do
-    session_timer
+  defp get_next_session_timer( team, _, session_timer, false), do: { session_timer, team}
+  defp get_next_session_timer( _, current, session_timer, true) do
+    current_team = CoordinatorTeam.choose_team()
+    IO.inspect current_team
+    { current + 5, current_team }
   end
 
   def handle_cast( {:start}, state) do
