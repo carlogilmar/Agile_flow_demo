@@ -6,12 +6,13 @@ defmodule AgileFlow.SessionGame do
   def start_link(), do: GenServer.start_link(__MODULE__, [], [name: __MODULE__])
   def play(), do: GenServer.cast( __MODULE__, {:start} )
   def reset(), do: GenServer.cast( __MODULE__, {:end} )
+  def validate_answer( answer ), do: GenServer.cast(__MODULE__, {:validate_answer, answer } )
   defp loop(), do: send self(), :loop
 
   def init(_), do: {:ok, {:timer, 0, :animals, 0, :enable_flag, 0, :disable, :no_animal_selected} }
 
   def handle_info(:loop, state) do
-    {_, counter, _, animals_index, _, enable_counter, current, animal} = state
+    {_, counter, _, animals_index, _, enable_counter, _, _} = state
     next_state = get_next_state( counter, animals_index, enable_counter )
     :timer.sleep 1000
     loop()
@@ -54,6 +55,23 @@ defmodule AgileFlow.SessionGame do
     IO.puts "Session Game Stopped..."
     Process.exit( self() , :kill)
     {:noreply, state}
+  end
+
+  def handle_cast( { :validate_answer, {answer, team} }, state) do
+    {:timer, _, :animals, _, :enable_flag, _, _, animal_selected} = state
+    validate_answer( animal_selected == answer, team )
+    IO.puts " Validando Respuesta: #{answer} Animal en curso: #{animal_selected} "
+    {:noreply, state}
+  end
+
+  def validate_answer( true, team) do
+    IO.puts " #{team} lo hizo!"
+    Endpoint.broadcast "main::start", "main::show_toast", %{ msg: "Correcto del equipo #{team}!!"}
+  end
+
+  def validate_answer( false, team) do
+    IO.puts " #{team} falló!"
+    Endpoint.broadcast "main::start", "main::show_toast", %{ msg: "Incorrecto del equipo #{team}!!"}
   end
 
 end

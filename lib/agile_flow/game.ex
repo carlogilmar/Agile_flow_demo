@@ -7,6 +7,7 @@ defmodule AgileFlow.Game do
   def start_link(), do: GenServer.start_link(__MODULE__, [], [name: __MODULE__])
   def play(), do: GenServer.cast( __MODULE__, {:start} )
   def reset(), do: GenServer.cast( __MODULE__, {:end} )
+  def send_answer( answer ), do: GenServer.cast( __MODULE__, {:send_answer, answer} )
   defp loop(), do: send self(), :loop
 
   def init(_), do: {:ok, {:timer, 0, :session_timer, 0, :current_team, nil} }
@@ -39,6 +40,13 @@ defmodule AgileFlow.Game do
   def handle_cast( {:end}, state) do
     IO.puts "Cerrando sesión"
     Process.exit( self() , :kill)
+    {:noreply, state}
+  end
+
+  def handle_cast({:send_answer, answer}, state) do
+    {:timer, _, :session_timer, _, :current_team, team} = state
+    IO.puts "El equipo #{team} ha enviado la respuesta #{answer} a validar"
+    SessionGame.validate_answer( {answer, team} )
     {:noreply, state}
   end
 
