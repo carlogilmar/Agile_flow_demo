@@ -4,8 +4,13 @@
 	<h3 class="display-4">Cultura Ágil</h3>
 	<h2> <span id="current" style="font-size: 100px;"> Equipo </span> </h2>
 	<div class="text-center" id="player_console">
-		<h2> Aquí va el menú de opciones </h2>
-		<button class="btn btn-primary"> Saludos </button>
+		<h4> Elije la opción que ves en el proyector. </h4>
+    <button class="btn btn-primary" onclick="chooseMe('eagle')"> eagle </button>
+    <button class="btn btn-primary" onclick="chooseMe('tapir')"> tapir </button>
+    <button class="btn btn-primary" onclick="chooseMe('insect')"> insect </button>
+    <button class="btn btn-primary" onclick="chooseMe('wolf')"> wolf </button>
+    <button class="btn btn-primary" onclick="chooseMe('tiger')"> tiger </button>
+    <button class="btn btn-primary" onclick="chooseMe('elephant')"> elephant </button>
 	</div>
 </div>
 

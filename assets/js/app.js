@@ -111,3 +111,5 @@ main_socket.on("presence_diff", diff => {
   $("#current_user").text( "Conexiones: "+ users_connected );
   window.main_socket.push('main::sync_users', {message: "Actualizando!"});
 })
+
+window.chooseMe = function chooseMe( animal ){ console.log("Enviando: "+animal); }
