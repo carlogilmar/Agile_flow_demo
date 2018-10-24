@@ -1,4 +1,4 @@
-defmodule AgileFlow.Coordinator do
+defmodule AgileFlow.CoordinatorTeam do
   use GenServer
 
   @teams ["A", "B", "C", "D", "E", "F", "G", "H"]
