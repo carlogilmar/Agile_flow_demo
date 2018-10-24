@@ -12,7 +12,8 @@ defmodule AgileFlow.Application do
       supervisor(AgileFlowWeb.Presence, []),
       supervisor(AgileFlow.Director, []),
       supervisor(AgileFlow.CoordinatorTeam, []),
-      supervisor(AgileFlow.SessionGame, [])
+      supervisor(AgileFlow.SessionGame, []),
+      supervisor(AgileFlow.Game, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
