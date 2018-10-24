@@ -10,7 +10,8 @@ defmodule AgileFlow.Application do
     children = [
       supervisor(AgileFlowWeb.Endpoint, []),
       supervisor(AgileFlowWeb.Presence, []),
-      supervisor(AgileFlow.Director, [])
+      supervisor(AgileFlow.Director, []),
+      supervisor(AgileFlow.SessionGame, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
