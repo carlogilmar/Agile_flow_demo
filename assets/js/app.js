@@ -85,9 +85,9 @@ main_socket.on("main::team_players", function(data) {
   $("#h").text( data["H"] );
 })
 
-main_socket.on("main::show_toast", function(data) {
-  toastr.success('Conexión Exitosa!', data.msg);
-})
+main_socket.on("main::show_toast", function(data) { toastr.info('', data.msg); })
+main_socket.on("main::success_toast", function(data) { toastr.success('', data.msg); })
+main_socket.on("main::fail_toast", function(data) { toastr.error('', data.msg); })
 
 main_socket.on("main::team_player", function(data) {
   let my_team = document.getElementById("current").textContent;
