@@ -78,4 +78,8 @@
   <small> Current User </small>
 </div>
 
+<div class="text-center" style="visibility: hidden;">
+<br><span id="current"> Equipo </span>
+</div>
+
 </div>
