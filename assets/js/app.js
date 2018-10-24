@@ -60,6 +60,10 @@ window.animalPolygon = Array.from(document.querySelectorAll('#SVG-animal polygon
 window.dur = 300;
 window.delay = 0.05;
 
+// set default animal
+window.animateSVG(window.animalPolygon, window.animals["tiger"], window.dur, window.delay);
+window.body.classList = "tiger";
+
 main_socket.on("main::change_image", function(data) {
 	let animalData = data.msg;
 	console.log(animalData);
