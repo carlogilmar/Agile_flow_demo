@@ -11,6 +11,7 @@ defmodule AgileFlow.Application do
       supervisor(AgileFlowWeb.Endpoint, []),
       supervisor(AgileFlowWeb.Presence, []),
       supervisor(AgileFlow.Director, []),
+      supervisor(AgileFlow.Coordinator, []),
       supervisor(AgileFlow.SessionGame, [])
     ]
 
