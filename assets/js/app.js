@@ -11,11 +11,12 @@ window.main_socket = main_socket;
 main_socket.join()
   .receive("ok", resp => {
     console.log("Joined to Example Channel!!", resp)
-    console.log(resp.category);
+    console.log({resp});
 		$("#current").text( resp.category );
     $("#player_console").hide();
 		$("#loader").hide();
-    window.playSong()
+    //document.getElementById("song").textContent = resp.song;
+    window.playSong(resp.song)
     Howler.volume(0)
   })
   .receive("error", resp => {
@@ -136,9 +137,9 @@ main_socket.on("main::stop_all", function(state) {
 });
 
 /* Howler.js */
-window.playSong = function playSong( ) {
+window.playSong = function playSong( song ) {
   let sound2 = new Howl({
-    src: [ "http://carlogilmar.me/cuatro.m4a" ],
+    src: [ song ],
     autoplay: true,
     loop: true,
     volume: 1
