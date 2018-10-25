@@ -3,14 +3,14 @@ defmodule AgileFlow.Director do
   use GenServer
 
   @songs [
-    %{"song" => "http://carlogilmar.me/uno.m4a", "category" => "A"},
-    %{"song" => "http://carlogilmar.me/dos.m4a", "category" => "B"},
-    %{"song" => "http://carlogilmar.me/tres.m4a", "category" => "C"},
-    %{"song" => "http://carlogilmar.me/cuatro.m4a", "category" => "D"},
-    %{"song" => "http://carlogilmar.me/cinco.m4a", "category" => "E"},
-    %{"song" => "http://carlogilmar.me/seis.m4a", "category" => "F"},
-    %{"song" => "http://carlogilmar.me/siete.m4a", "category" => "G"},
-    %{"song" => "http://carlogilmar.me/ocho.m4a", "category" => "H"}
+    %{"song" => "http://carlogilmar.me/a.m4a", "category" => "A"},
+    %{"song" => "http://carlogilmar.me/b.m4a", "category" => "B"},
+    %{"song" => "http://carlogilmar.me/c.m4a", "category" => "C"},
+    %{"song" => "http://carlogilmar.me/d.m4a", "category" => "D"},
+    %{"song" => "http://carlogilmar.me/e.m4a", "category" => "E"},
+    %{"song" => "http://carlogilmar.me/f.m4a", "category" => "F"},
+    %{"song" => "http://carlogilmar.me/g.m4a", "category" => "G"},
+    %{"song" => "http://carlogilmar.me/h.m4a", "category" => "H"}
   ]
 
   def start_link() do
