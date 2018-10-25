@@ -3,19 +3,23 @@
 	<img src="https://easychair.org/images/cfp-logo/CONISOFT_2018.jpg" /><br>
 	<h3 class="display-4">Cultura Ágil</h3>
 	<h2> <span id="current" style="font-size: 100px;"> Equipo </span> </h2>
-	<h4> Score:<span id="score"> 0 </span> </h4>
-	<div class="text-center" id="player_console">
+	<h4> SCORE &nbsp;<span class="label label-primary" style="font-size: 20px;" id="score"> 0 </span> </h4>
+  <br>
+	<div class="text-center"  id="player_console">
 		<h4> Elije la opción que ves en el proyector. </h4>
-    <button class="btn btn-primary" onclick="chooseMe('eagle')"> eagle </button>
-    <button class="btn btn-primary" onclick="chooseMe('tapir')"> tapir </button>
-    <button class="btn btn-primary" onclick="chooseMe('insect')"> insect </button>
-    <button class="btn btn-primary" onclick="chooseMe('wolf')"> wolf </button>
-    <button class="btn btn-primary" onclick="chooseMe('tiger')"> tiger </button>
-    <button class="btn btn-primary" onclick="chooseMe('elephant')"> elephant </button>
+    <button class="btn btn-danger btn-lg" onclick="chooseMe('eagle')"> Eagle </button>
+    <button class="btn btn-primary btn-lg" onclick="chooseMe('tapir')"> Tapir </button>
+    <button class="btn btn-success btn-lg" onclick="chooseMe('insect')"> Insect </button>
+    <br><br>
+    <button class="btn btn-success btn-lg" onclick="chooseMe('wolf')"> Wolf </button>
+    <button class="btn btn-info btn-lg" onclick="chooseMe('tiger')"> Tiger </button>
+    <button class="btn btn-danger btn-lg" onclick="chooseMe('elephant')"> Elephant </button>
 	</div>
+  <br><br>
+  <br><br>
 </div>
 
-<div class="text-center" id="loader">
+<div class="text-center" style="visibility: visible;" id="flower">
 	<article class="wwdc">
 		<span class="spanimate spin">
 			<!-- Large Circles -->

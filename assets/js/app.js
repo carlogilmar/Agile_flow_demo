@@ -14,8 +14,6 @@ main_socket.join()
     console.log({resp});
 		$("#current").text( resp.category );
     $("#player_console").hide();
-		$("#loader").hide();
-    //document.getElementById("song").textContent = resp.song;
     window.playSong(resp.song)
     Howler.volume(0)
   })
@@ -96,10 +94,10 @@ main_socket.on("main::team_player", function(data) {
   let my_team = document.getElementById("current").textContent;
   if(data.team === my_team){
     $("#player_console").show();
-    $("#loader").hide();
+    document.getElementById("flower").style = "visibility: hidden;";
   } else {
     $("#player_console").hide();
-    $("#loader").show();
+    document.getElementById("flower").style = "visibility: visible;";
   }
 })
 
