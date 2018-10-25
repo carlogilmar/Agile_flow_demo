@@ -113,6 +113,7 @@ main_socket.on("presence_diff", diff => {
 });
 
 window.chooseMe = function chooseMe( animal ){
+  $("#player_console").hide();
   console.log("Enviando: "+animal);
   window.main_socket.push('main::send_answer', {answer: animal});
 };
