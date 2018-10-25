@@ -1,12 +1,12 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-	<br>
-	<img src="https://easychair.org/images/cfp-logo/CONISOFT_2018.jpg" /><br>
-	<h3 class="display-4">Cultura Ágil</h3>
-	<h2> <span id="current" style="font-size: 100px;"> Equipo </span> </h2>
-	<h4> SCORE &nbsp;<span class="label label-primary" style="font-size: 20px;" id="score"> 0 </span> </h4>
   <br>
-	<div class="text-center"  id="player_console">
-		<h4> Elije la opción que ves en el proyector. </h4>
+  <img src="https://easychair.org/images/cfp-logo/CONISOFT_2018.jpg" /><br>
+  <h3 class="display-4">Cultura Ágil</h3>
+  <h2> <span id="current" style="font-size: 100px;"> Equipo </span> </h2>
+  <h4> SCORE &nbsp;<span class="label label-primary" style="font-size: 20px;" id="score"> 0 </span> </h4>
+  <br>
+  <div class="text-center"  id="player_console">
+    <h4> Elije la opción que ves en el proyector. </h4>
     <button class="btn btn-danger btn-lg" onclick="chooseMe('eagle')"> Eagle </button>
     <button class="btn btn-primary btn-lg" onclick="chooseMe('tapir')"> Tapir </button>
     <button class="btn btn-success btn-lg" onclick="chooseMe('insect')"> Insect </button>
@@ -14,35 +14,35 @@
     <button class="btn btn-success btn-lg" onclick="chooseMe('wolf')"> Wolf </button>
     <button class="btn btn-info btn-lg" onclick="chooseMe('tiger')"> Tiger </button>
     <button class="btn btn-danger btn-lg" onclick="chooseMe('elephant')"> Elephant </button>
-	</div>
-  <br><br>
-  <br><br>
+    <br><br>
+    <br><br>
+  </div>
 </div>
 
-<div class="text-center" style="visibility: visible;" id="flower">
-	<article class="wwdc">
-		<span class="spanimate spin">
-			<!-- Large Circles -->
-			<div class="large circle one"></div>
-			<div class="large circle two"></div>
-			<div class="large circle three"></div>
-			<div class="large circle four"></div>
-			<div class="large circle five"></div>
-			<div class="large circle six"></div>
-			<div class="large circle seven"></div>
-			<div class="large circle eight"></div>
-		</span>
-		<span class="spanimate pulse">
-			<!-- Small Shapes -->
-			<div class="small circle one"></div>
-			<div class="small squircle two"></div>
-			<div class="small circle three"></div>
-			<div class="small squircle four"></div>
-			<div class="small circle five"></div>
-			<div class="small squircle six"></div>
-			<div class="small circle seven"></div>
-			<div class="small squircle eight"></div>
-		</span>
-	</article>
+<div class="text-center" style="visibility: hidden;" id="flower">
+  <article class="wwdc">
+    <span class="spanimate spin">
+      <!-- Large Circles -->
+      <div class="large circle one"></div>
+      <div class="large circle two"></div>
+      <div class="large circle three"></div>
+      <div class="large circle four"></div>
+      <div class="large circle five"></div>
+      <div class="large circle six"></div>
+      <div class="large circle seven"></div>
+      <div class="large circle eight"></div>
+    </span>
+    <span class="spanimate pulse">
+      <!-- Small Shapes -->
+      <div class="small circle one"></div>
+      <div class="small squircle two"></div>
+      <div class="small circle three"></div>
+      <div class="small squircle four"></div>
+      <div class="small circle five"></div>
+      <div class="small squircle six"></div>
+      <div class="small circle seven"></div>
+      <div class="small squircle eight"></div>
+    </span>
+  </article>
 </div>
 

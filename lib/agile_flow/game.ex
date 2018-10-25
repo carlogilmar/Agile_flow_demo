@@ -7,6 +7,7 @@ defmodule AgileFlow.Game do
   def start_link(), do: GenServer.start_link(__MODULE__, [], [name: __MODULE__])
   def play(), do: GenServer.cast( __MODULE__, {:start} )
   def reset(), do: GenServer.cast( __MODULE__, {:end} )
+  def all(), do: GenServer.cast( __MODULE__, {:all} )
   def send_answer( answer ), do: GenServer.cast( __MODULE__, {:send_answer, answer} )
   defp loop(), do: send self(), :loop
 
@@ -26,7 +27,8 @@ defmodule AgileFlow.Game do
     IO.puts "Le va al equipo #{current_team}"
     Endpoint.broadcast "main::start", "main::show_toast", %{ msg: "Turno del equipo #{current_team}"}
     Endpoint.broadcast "main::start", "main::team_player", %{ team: current_team}
-    { current + 5, current_team }
+    # Periodo de tiempo en que cambia el equipo
+    { current + 8, current_team }
   end
 
   def handle_cast( {:start}, state) do
@@ -40,7 +42,13 @@ defmodule AgileFlow.Game do
 
   def handle_cast( {:end}, state) do
     IO.puts "Cerrando sesión"
+    Endpoint.broadcast "main::start", "main::stop_all", %{ msg: "Silenciando la sala" }
     Process.exit( self() , :kill)
+    {:noreply, state}
+  end
+
+  def handle_cast( {:all}, state) do
+    Endpoint.broadcast "main::start", "main::play_all", %{ msg: "Que suene la sala!!" }
     {:noreply, state}
   end
 

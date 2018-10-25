@@ -97,7 +97,6 @@ main_socket.on("main::team_player", function(data) {
     document.getElementById("flower").style = "visibility: hidden;";
   } else {
     $("#player_console").hide();
-    document.getElementById("flower").style = "visibility: visible;";
   }
 })
 
@@ -122,13 +121,14 @@ main_socket.on("main::score", function(state) { console.log("Actualizando score!
 
 main_socket.on("main::play_team", function(state) {
   let team = document.getElementById("current").textContent;
-  if( state.team == team ){ Howler.volume(0.5); }
+  if( state.team == team ){ Howler.volume(1); }
   else { console.log("Respuesta Correcta del equipo "+ state.team);  }
 });
 
 main_socket.on("main::play_all", function(state) {
   console.log("Todos se rifan, que todos suenen!!");
   Howler.volume(1)
+  document.getElementById("flower").style = "visibility: visible;";
 });
 
 main_socket.on("main::stop_all", function(state) {
