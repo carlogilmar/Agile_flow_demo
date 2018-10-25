@@ -118,3 +118,15 @@ window.chooseMe = function chooseMe( animal ){
 };
 
 main_socket.on("main::score", function(state) { console.log("Actualizando score!!"); $("#score").text( state.score ); });
+
+main_socket.on("main::play_team", function(state) {
+  console.log("Respuesta Correcta, que suene el equipo "+ state.team);
+});
+
+main_socket.on("main::play_all", function(state) {
+  console.log("Todos se rifan, que todos suenen!!");
+});
+
+main_socket.on("main::play_team", function(state) {
+ console.log("Fallaron, todos se callan!!");
+});

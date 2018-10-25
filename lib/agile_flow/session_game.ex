@@ -68,13 +68,14 @@ defmodule AgileFlow.SessionGame do
   def validate_answer( true, team) do
     IO.puts " #{team} lo hizo!, que suene!!"
     AgileFlow.ScoreGame.assert()
-    Endpoint.broadcast "main::start", "main::success_toast", %{ msg: "Correcto del equipo #{team}!!"}
+    Endpoint.broadcast "main::start", "main::success_toast", %{ msg: "Respuesta Correcta del equipo #{team}!!"}
+    Endpoint.broadcast "main::start", "main::play_team", %{ team: team}
   end
 
   def validate_answer( false, team) do
     IO.puts " #{team} falló!"
     AgileFlow.ScoreGame.fail()
-    Endpoint.broadcast "main::start", "main::fail_toast", %{ msg: "Incorrecto del equipo #{team}!!"}
+    Endpoint.broadcast "main::start", "main::fail_toast", %{ msg: "Respuesta Incorrecta del equipo #{team}!!"}
   end
 
 end
