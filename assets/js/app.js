@@ -15,6 +15,8 @@ main_socket.join()
 		$("#current").text( resp.category );
     $("#player_console").hide();
 		$("#loader").hide();
+    window.playSong()
+    Howler.volume(0)
   })
   .receive("error", resp => {
     console.log("Unable to join", resp)
@@ -121,12 +123,26 @@ main_socket.on("main::score", function(state) { console.log("Actualizando score!
 
 main_socket.on("main::play_team", function(state) {
   console.log("Respuesta Correcta, que suene el equipo "+ state.team);
+  Howler.volume(1)
 });
 
 main_socket.on("main::play_all", function(state) {
   console.log("Todos se rifan, que todos suenen!!");
 });
 
-main_socket.on("main::play_team", function(state) {
- console.log("Fallaron, todos se callan!!");
+main_socket.on("main::stop_all", function(state) {
+  console.log("Fallaron, todos se callan!!");
+  Howler.volume(0)
 });
+
+/* Howler.js */
+window.playSong = function playSong( ) {
+  let sound2 = new Howl({
+    src: [ "http://carlogilmar.me/cuatro.m4a" ],
+    autoplay: true,
+    loop: true,
+    volume: 1
+  });
+}
+
+//Howler.volume(0)

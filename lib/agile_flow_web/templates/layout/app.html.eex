@@ -14,6 +14,7 @@
 
   <body>
     <%= render @view_module, @view_template, assigns %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.14/howler.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script>
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
