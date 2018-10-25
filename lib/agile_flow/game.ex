@@ -28,7 +28,7 @@ defmodule AgileFlow.Game do
     Endpoint.broadcast "main::start", "main::show_toast", %{ msg: "Turno del equipo #{current_team}"}
     Endpoint.broadcast "main::start", "main::team_player", %{ team: current_team}
     # Periodo de tiempo en que cambia el equipo
-    { current + 8, current_team }
+    { current + 7, current_team }
   end
 
   def handle_cast( {:start}, state) do

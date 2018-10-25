@@ -30,6 +30,10 @@ defmodule AgileFlow.ScoreGame do
   def decrement_score( 0 ), do: 0
   def decrement_score( score ), do: score-1
 
-  def play_everything( 6 ), do: Endpoint.broadcast "main::start", "main::play_all", %{ msg: "suenen todos!"}
+  # Cuando lleguen a un score de 7 que se apaguen para que no suenen todos
+  def play_everything( 7 ), do: Endpoint.broadcast "main::start", "main::stop_all", %{ msg: "Continuen!!"}
+  def play_everything( 14 ), do: Endpoint.broadcast "main::start", "main::stop_all", %{ msg: "Continuen!!"}
+  # Meta para que todos estén filosos!!
+  def play_everything( 25 ), do: Endpoint.broadcast "main::start", "main::play_all", %{ msg: "suenen todos!"}
   def play_everything( _ ), do: :continue
 end

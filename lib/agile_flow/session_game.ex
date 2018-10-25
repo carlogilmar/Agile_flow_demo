@@ -39,7 +39,7 @@ defmodule AgileFlow.SessionGame do
   end
 
     # Periodo de tiempo en que cambia el animal
-  defp get_enable_counter( current, _, true), do: { current + 8, :disable}
+  defp get_enable_counter( current, _, true), do: { current + 7, :disable}
   defp get_enable_counter( _, enable_counter, false), do: { enable_counter, :enable }
 
   defp get_animal( index ), do: Enum.at( @animals, index )
