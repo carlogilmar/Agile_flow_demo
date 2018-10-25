@@ -3,6 +3,8 @@ defmodule AgileFlow.Game do
   alias AgileFlow.CoordinatorTeam
   alias AgileFlow.SessionGame
   alias AgileFlowWeb.Endpoint
+  # Sincronizar Game y SessionGame
+  @period_time 6
 
   def start_link(), do: GenServer.start_link(__MODULE__, [], [name: __MODULE__])
   def play(), do: GenServer.cast( __MODULE__, {:start} )
@@ -28,7 +30,7 @@ defmodule AgileFlow.Game do
     Endpoint.broadcast "main::start", "main::show_toast", %{ msg: "Turno del equipo #{current_team}"}
     Endpoint.broadcast "main::start", "main::team_player", %{ team: current_team}
     # Periodo de tiempo en que cambia el equipo
-    { current + 7, current_team }
+    { current + @period_time, current_team }
   end
 
   def handle_cast( {:start}, state) do

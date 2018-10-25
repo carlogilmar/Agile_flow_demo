@@ -3,6 +3,8 @@ defmodule AgileFlow.SessionGame do
   alias AgileFlowWeb.Endpoint
   alias AgileFlow.ScoreGame
   @animals ["eagle", "tapir", "insect", "wolf", "tiger", "elephant"]
+  # Sincronizar SessionGame con Game
+  @period_time 6
 
   def start_link(), do: GenServer.start_link(__MODULE__, [], [name: __MODULE__])
   def play(), do: GenServer.cast( __MODULE__, {:start} )
@@ -39,7 +41,7 @@ defmodule AgileFlow.SessionGame do
   end
 
     # Periodo de tiempo en que cambia el animal
-  defp get_enable_counter( current, _, true), do: { current + 7, :disable}
+  defp get_enable_counter( current, _, true), do: { current + @period_time, :disable}
   defp get_enable_counter( _, enable_counter, false), do: { enable_counter, :enable }
 
   defp get_animal( index ), do: Enum.at( @animals, index )
