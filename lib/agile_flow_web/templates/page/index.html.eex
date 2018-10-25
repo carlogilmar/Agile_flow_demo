@@ -15,8 +15,6 @@
 	</div>
 </div>
 
-<div class="text-center" style="visibility: visible;" id="song">rola!</div>
-
 <div class="text-center" id="loader">
 	<article class="wwdc">
 		<span class="spanimate spin">

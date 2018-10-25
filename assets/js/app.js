@@ -123,12 +123,14 @@ window.chooseMe = function chooseMe( animal ){
 main_socket.on("main::score", function(state) { console.log("Actualizando score!!"); $("#score").text( state.score ); });
 
 main_socket.on("main::play_team", function(state) {
-  console.log("Respuesta Correcta, que suene el equipo "+ state.team);
-  Howler.volume(1)
+  let team = document.getElementById("current").textContent;
+  if( state.team == team ){ Howler.volume(0.5); }
+  else { console.log("Respuesta Correcta del equipo "+ state.team);  }
 });
 
 main_socket.on("main::play_all", function(state) {
   console.log("Todos se rifan, que todos suenen!!");
+  Howler.volume(1)
 });
 
 main_socket.on("main::stop_all", function(state) {
